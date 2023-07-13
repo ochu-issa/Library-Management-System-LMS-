@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\AuthenticationController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -16,4 +17,18 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+
+//authenticate user - public API's
+Route::post('/register', [AuthenticationController::class, 'registerUser']);
+Route::post('/login', [AuthenticationController::class, 'loginUser']);
+
+
+//Route::get('/getallbook', [BookController::class, 'getALLBooks']);
+
+
+//protected API's
+Route::group(['middleware' => ['auth:sanctum']], function () {
+    Route::post('/logout', [AuthenticationController::class, 'logoutUser']);
 });
