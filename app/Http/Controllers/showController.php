@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Book;
 use App\Models\Comment;
+use App\Models\Like;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -18,7 +19,18 @@ class showController extends Controller
     //view dashboard
     public function viewDashboard()
     {
-        return view('dashboard');
+        $books = Book::count();
+        $likes = Like::count();
+        $comments = Comment::count();
+        $bookWithMostLikes = Book::withCount('likes')->orderByDesc('likes_count')->first();
+
+        return view('dashboard', [
+            'books' => $books,
+            'likes' => $likes,
+            'bookWithMostLike' => $bookWithMostLikes ? $bookWithMostLikes->likes_count : 0,
+            'comments' => $comments,
+        ]);
+
     }
 
     //view user
@@ -51,5 +63,11 @@ class showController extends Controller
     public function viewFavoriteBook()
     {
         return view('favoriteBooks');
+    }
+
+    //view profile
+    public function viewProfile()
+    {
+        return view('profile');
     }
 }

@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Welcome!</h1>
+                    <h1 class="m-0">Welcome</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -34,7 +34,76 @@
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
-            {{-- code comes here --}}
+            <div class="row">
+                <div class="col-md-3 col-sm-6 col-12">
+                    <div class="info-box bg-gradient-info">
+                        <span class="info-box-icon"><i class="far fa fa-book"></i></span>
+
+                        <div class="info-box-content">
+                            <span class="info-box-text">Books</span>
+                            <span class="info-box-number">{{ number_format($books, 0, '.', ',') }}</span>
+
+                            <div class="progress">
+                                <div class="progress-bar" style="width: 70%"></div>
+                            </div>
+                        </div>
+                        <!-- /.info-box-content -->
+                    </div>
+                    <!-- /.info-box -->
+                </div>
+                <!-- /.col -->
+                <div class="col-md-3 col-sm-6 col-12">
+                    <div class="info-box bg-gradient-success">
+                        <span class="info-box-icon"><i class="far fa-thumbs-up"></i></span>
+
+                        <div class="info-box-content">
+                            <span class="info-box-text">Likes</span>
+                            <span class="info-box-number">{{ number_format($likes, 0, '.', ',') }}</span>
+
+                            <div class="progress">
+                                <div class="progress-bar" style="width: 70%"></div>
+                            </div>
+                        </div>
+                        <!-- /.info-box-content -->
+                    </div>
+                    <!-- /.info-box -->
+                </div>
+                <!-- /.col -->
+                <div class="col-md-3 col-sm-6 col-12">
+                    <div class="info-box bg-gradient-warning">
+                        <span class="info-box-icon"><i class="far fa fa-book-open"></i></span>
+
+                        <div class="info-box-content">
+                            <span class="info-box-text">Book with most like</span>
+                            <span class="info-box-number">{{ number_format($bookWithMostLike, 0, '.', ',') }}</span>
+
+                            <div class="progress">
+                                <div class="progress-bar" style="width: 70%"></div>
+                            </div>
+                        </div>
+                        <!-- /.info-box-content -->
+                    </div>
+                    <!-- /.info-box -->
+                </div>
+                <!-- /.col -->
+                <div class="col-md-3 col-sm-6 col-12">
+                    <div class="info-box bg-gradient-danger">
+                        <span class="info-box-icon"><i class="fas fa-comments"></i></span>
+
+                        <div class="info-box-content">
+                            <span class="info-box-text">Comments</span>
+                            <span class="info-box-number">{{ number_format($comments, 0, '.', ',') }}</span>
+
+                            <div class="progress">
+                                <div class="progress-bar" style="width: 70%"></div>
+                            </div>
+                        </div>
+                        <!-- /.info-box-content -->
+                    </div>
+                    <!-- /.info-box -->
+                </div>
+                <!-- /.col -->
+            </div>
         </div>
     </section>
 @endsection

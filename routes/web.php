@@ -18,9 +18,10 @@ Route::group(['middleware' => ['auth', 'prevent_back_history']], function () {
     Route::get('/', [showController::class, 'viewDashboard'])->name('dashboard');
     Route::get('/book', [showController::class, 'viewBooks'])->name('book');
     Route::get('/bookdetail/{id}', [showController::class, 'bookDetails'])->name('bookdetail');
-    Route::get('user', [showController::class, 'viewUser'])->name('user');
-    Route::get('popularbook', [showController::class, 'viewPopularBook'])->name('popularbook');
-    Route::get('favoritebook', [showController::class, 'viewFavoriteBook'])->name('favoritebook');
+    Route::get('/user', [showController::class, 'viewUser'])->name('user');
+    Route::get('/popularbook', [showController::class, 'viewPopularBook'])->name('popularbook');
+    Route::get('/favoritebook', [showController::class, 'viewFavoriteBook'])->name('favoritebook');
+    Route::get('/profile', [showController::class, 'viewProfile'])->name('profile');
     Route::post('/comment', [storeDataController::class, 'createComment'])->name('comment');
     Route::post('/like', [storeDataController::class, 'likeBook'])->name('like');
 

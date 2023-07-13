@@ -66,6 +66,12 @@
                            </ul>
                        </li>
                    @endhasrole
+                   <li class="nav-item">
+                    <a href="{{route('profile')}}" class="nav-link">
+                        <i class="nav-icon fa fa-user"></i>
+                        <p> Profile </p>
+                    </a>
+                </li>
                </ul>
            </nav>
            <!-- /.sidebar-menu -->

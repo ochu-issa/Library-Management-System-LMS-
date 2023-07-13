@@ -17,17 +17,6 @@
                 <span class="fas fa-caret-down"></span>
             </a>
             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right" style="left: inherit; right: 0px;">
-                <a href="#" class="dropdown-item">
-                    <div class="media">
-                        <div class="media-body">
-                            <h3 class="dropdown-item-title">
-                                Credentials
-                                <span class="float-right text-sm text-green"><i class="fas fa-star"></i></span>
-                            </h3>
-                            <p class="text-sm text-muted"><i class="fas fa-key green"></i> Change Password</p>
-                        </div>
-                    </div>
-                </a>
                 <div class="dropdown-divider"></div>
                 <a href="{{route('logout')}}" class="dropdown-item" role="button">
                     <div class="media">
