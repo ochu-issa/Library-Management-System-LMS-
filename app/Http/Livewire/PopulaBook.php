@@ -12,7 +12,7 @@ class PopulaBook extends Component
     public function render()
     {
 
-        $books = Book::withCount('likes')->orderBy('likes_count', 'asc')->get();
+        $books = Book::withCount('likes')->orderBy('likes_count', 'desc')->get();
         return view('livewire.popula-book', ['books'=>$books]);
     }
 }

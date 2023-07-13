@@ -51,7 +51,7 @@
                                 <th>Book Title</th>
                                 <th>Book Author</th>
                                 <th>Book Type</th>
-                                <th>Created By</th>
+                                {{-- <th>Created By</th> --}}
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -62,8 +62,8 @@
                                     <td>{{ $book->booktitle }}</td>
                                     <td>{{ $book->bookauthor }} </td>
                                     <td>{{ $book->booktype }}</td>
-                                    <td>{{ $book->user->full_name }} -
-                                        <small>{{ $book->user->created_at->diffForHumans() }}</small>
+                                    {{-- <td>{{ $book->user->full_name }} -
+                                        <small>{{ $book->user->created_at->diffForHumans() }}</small> --}}
                                     </td>
                                     <td>
 
