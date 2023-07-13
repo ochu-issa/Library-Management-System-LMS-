@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Book;
 use Illuminate\Http\Request;
 
 class showController extends Controller
@@ -16,5 +17,12 @@ class showController extends Controller
     public function viewBooks()
     {
         return view('book');
+    }
+
+    //view book details
+    public function bookDetails($id)
+    {
+        $books = Book::findOrFail($id);
+        return view('bookDetails', ['book' => $books]);
     }
 }

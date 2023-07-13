@@ -16,6 +16,9 @@ Route::group(['middleware' => ['auth_check', 'prevent_back_history']], function 
 Route::group(['middleware' => ['auth', 'prevent_back_history']], function () {
     Route::get('/', [showController::class, 'viewDashboard'])->name('dashboard');
     Route::get('/book', [showController::class, 'viewBooks'])->name('book');
+    Route::get('bookdetail/{id}', [showController::class, 'bookDetails'])->name('bookdetail');
+
+
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 });
