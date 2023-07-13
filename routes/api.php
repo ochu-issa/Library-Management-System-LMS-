@@ -33,4 +33,6 @@ Route::post('/login', [AuthenticationController::class, 'loginUser']);
 Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('/logout', [AuthenticationController::class, 'logoutUser']);
     Route::get('/getallbook', [GetAllBooksController::class, 'getAllBook']);
+    Route::get('/getpopularbook', [GetAllBooksController::class, 'booksWithMostLikes']);
+
 });

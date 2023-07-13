@@ -30,7 +30,7 @@
                        </a>
                    </li>
                    <li class="nav-item">
-                       <a href="" class="nav-link">
+                       <a href="{{route('popularbook')}}" class="nav-link">
                            <i class="nav-icon fa fa-book-open"></i>
                            <p> Popular Books </p>
                        </a>

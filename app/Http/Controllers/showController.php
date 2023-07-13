@@ -41,4 +41,10 @@ class showController extends Controller
 
         return view('bookDetails', ['book' => $books, 'comments' => $comments]);
     }
+
+    //get popular book
+    public function viewPopularBook()
+    {
+        return view('populaBook');
+    }
 }
