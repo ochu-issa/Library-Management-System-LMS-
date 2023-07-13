@@ -28,9 +28,16 @@ class Book extends Model
         return $this->hasMany(Favorite::class);
     }
 
-    //factory
-    public static function factory()
-{
-    return \Database\Factories\BookFactory::new();
-}
+    //book has many comments
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
+
+    // //factory
+    // public static function factory()
+    // {
+    //     return \Database\Factories\BookFactory::new();
+    // }
 }

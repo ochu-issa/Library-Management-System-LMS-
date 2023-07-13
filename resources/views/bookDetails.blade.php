@@ -37,144 +37,127 @@
             <div class="row">
                 <div class="col-md-3">
 
-                  <!-- Profile Image -->
-                  <div class="card card-primary card-outline">
-                    <div class="card-body box-profile">
-                      <div class="text-center">
-                        <img class="profile-user-img img-fluid img-circle"
-                             src="{{asset('book.png')}}"
-                             alt="User profile picture">
-                      </div>
+                    <!-- Profile Image -->
+                    <div class="card card-primary card-outline">
+                        <div class="card-body box-profile">
+                            <div class="text-center">
+                                <img class="profile-user-img img-fluid img-circle" src="{{ asset('book.png') }}"
+                                    alt="User profile picture">
+                            </div>
 
-                      <h3 class="profile-username text-center">{{$book->booktitle}}</h3>
+                            <h3 class="profile-username text-center">{{ $book->booktitle }}</h3>
 
-                      <p class="text-muted text-center">{{ $book->user->created_at->diffForHumans() }}</p>
+                            <p class="text-muted text-center">{{ $book->user->created_at->diffForHumans() }}</p>
 
-                      <ul class="list-group list-group-unbordered mb-3">
-                        <li class="list-group-item">
-                          <b>Book Author</b> <a class="float-right">{{$book->bookauthor}} </a>
-                        </li>
-                        <li class="list-group-item">
-                          <b>Book Type</b> <a class="float-right">{{$book->booktype}}</a>
-                        </li>
-                      </ul>
+                            <ul class="list-group list-group-unbordered mb-3">
+                                <li class="list-group-item">
+                                    <b>Book Author</b> <a class="float-right">{{ $book->bookauthor }} </a>
+                                </li>
+                                <li class="list-group-item">
+                                    <b>Book Type</b> <a class="float-right">{{ $book->booktype }}</a>
+                                </li>
+                            </ul>
+                            <div class="row">
+                                <div class="col col-md-4">
+                                    <button class="btn btn-app bg-info" onclick="likeBook('{{ $book->id }}')">
+                                        <span class="badge bg-danger">531</span>
+                                        <i class="fas fa-heart"></i> Favorites
+                                    </button>
+                                </div>
+                                <div class="col col-md-2"></div>
+                                <div class="col col-md-4">
+                                    <button class="btn btn-app bg-secondary" onclick="likeBook('{{ $book->id }}')">
+                                        <span class="badge bg-danger">531</span>
+                                        <i class="fas fa-thumbs-up"></i> Likes
+                                    </button>
+                                </div>
+                            </div>
 
-                      <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a>
+                        </div>
+                        <!-- /.card-body -->
                     </div>
-                    <!-- /.card-body -->
-                  </div>
-                  <!-- /.card -->
+                    <!-- /.card -->
                 </div>
                 <!-- /.col -->
                 <div class="col-md-9">
-                  <div class="card">
-                    <div class="card-header p-2">
-                      <ul class="nav nav-pills">
-                        <li class="nav-item"><a class="nav-link active" href="#timeline" data-toggle="tab">Description</a></li>
-                        <li class="nav-item"><a class="nav-link " href="#activity" data-toggle="tab">Comments</a></li>
+                    <div class="card">
+                        <div class="card-header p-2">
+                            <ul class="nav nav-pills">
+                                <li class="nav-item"><a class="nav-link active" href="#timeline"
+                                        data-toggle="tab">Description</a></li>
+                                <li class="nav-item"><a class="nav-link " href="#activity" data-toggle="tab">Comments</a>
+                                </li>
 
-                      </ul>
-                    </div><!-- /.card-header -->
-                    <div class="card-body">
-                      <div class="tab-content">
-                        <div class=" tab-pane" id="activity">
-                          <!-- Post -->
-                          <div class="post">
-                            <div class="user-block">
-                              <img class="img-circle img-bordered-sm" src="{{asset('profile.png')}}" alt="user image">
-                              <span class="username">
-                                <a href="#">Jonathan Burke Jr.</a>
-                                <a href="#" class="float-right btn-tool"><i class="fas fa-times"></i></a>
-                              </span>
-                              <span class="description">Shared publicly - 7:30 PM today</span>
-                            </div>
-                            <!-- /.user-block -->
-                            <p>
-                              Lorem ipsum represents a long-held tradition for designers,
-                              typographers and the like. Some people hate it and argue for
-                              its demise, but others ignore the hate as they create awesome
-                              tools to help create filler text for everyone from bacon lovers
-                              to Charlie Sheen fans.
-                            </p>
+                            </ul>
+                        </div><!-- /.card-header -->
+                        <div class="card-body">
+                            <div class="tab-content">
+                                @include('comment')
+                                <!-- /.tab-pane -->
+                                <div class=" active tab-pane" id="timeline">
+                                    <!-- The timeline -->
+                                    <div class="timeline timeline-inverse">
+                                        <!-- timeline item -->
+                                        <div>
+                                            <div class="timeline-item">
+                                                <span class="time"><i
+                                                        class="far fa-clock"></i>{{ $book->created_at->format('H:i') }}
+                                                </span>
 
-                            <p>
-                              <a href="#" class="link-black text-sm mr-2"><i class="fas fa-share mr-1"></i> Share</a>
-                              <a href="#" class="link-black text-sm"><i class="far fa-thumbs-up mr-1"></i> Like</a>
-                              <span class="float-right">
-                                <a href="#" class="link-black text-sm">
-                                  <i class="far fa-comments mr-1"></i> Comments (5)
-                                </a>
-                              </span>
-                            </p>
+                                                <h3 class="timeline-header"><a href="#"> {{ $book->booktype }}</a>
+                                                    Description</h3>
 
-                            <input class="form-control form-control-sm" type="text" placeholder="Type a comment">
-                          </div>
-                          <!-- /.post -->
-
-                          <!-- Post -->
-                          <div class="post clearfix">
-                            <div class="user-block">
-                              <img class="img-circle img-bordered-sm" src="{{asset('profile.png')}}" alt="User Image">
-                              <span class="username">
-                                <a href="#">Sarah Ross</a>
-                                <a href="#" class="float-right btn-tool"><i class="fas fa-times"></i></a>
-                              </span>
-                              <span class="description">Sent you a message - 3 days ago</span>
-                            </div>
-                            <!-- /.user-block -->
-                            <p>
-                              Lorem ipsum represents a long-held tradition for designers,
-                              typographers and the like. Some people hate it and argue for
-                              its demise, but others ignore the hate as they create awesome
-                              tools to help create filler text for everyone from bacon lovers
-                              to Charlie Sheen fans.
-                            </p>
-
-                            <form class="form-horizontal">
-                              <div class="input-group input-group-sm mb-0">
-                                <input class="form-control form-control-sm" placeholder="Response">
-                                <div class="input-group-append">
-                                  <button type="submit" class="btn btn-danger">Send</button>
+                                                <div class="timeline-body">
+                                                    {{ $book->description }}
+                                                </div>
+                                                <div class="timeline-footer">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- timeline item -->
+                                        <div>
+                                            <i class="far fa-clock bg-gray"></i>
+                                        </div>
+                                    </div>
                                 </div>
-                              </div>
-                            </form>
-                          </div>
-                          <!-- /.post -->
-                        </div>
-                        <!-- /.tab-pane -->
-                        <div class=" active tab-pane" id="timeline">
-                          <!-- The timeline -->
-                          <div class="timeline timeline-inverse">
-                            <!-- timeline item -->
-                            <div>
-                              <div class="timeline-item">
-                                <span class="time"><i class="far fa-clock"></i> {{ $book->created_at->format('H:i') }}
-                                </span>
-
-                                <h3 class="timeline-header"><a href="#"> {{$book->booktype}}</a> Description</h3>
-
-                                <div class="timeline-body">
-                                    {{$book->description}}
-                                </div>
-                                <div class="timeline-footer">
-                                </div>
-                              </div>
+                                <!-- /.tab-pane -->
                             </div>
-                            <!-- timeline item -->
-                            <div>
-                              <i class="far fa-clock bg-gray"></i>
-                            </div>
-                          </div>
-                        </div>
-                        <!-- /.tab-pane -->
-                      </div>
-                      <!-- /.tab-content -->
-                    </div><!-- /.card-body -->
-                  </div>
-                  <!-- /.card -->
+                            <!-- /.tab-content -->
+                        </div><!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
                 </div>
                 <!-- /.col -->
-              </div>
+            </div>
         </div>
     </section>
+
+    <script>
+        function likeBook() {
+            // Send an AJAX request to the server.
+            $.ajax({
+                url: '/like',
+                method: 'POST',
+                data: {
+                    // The ID of the book to like
+                    bookId: {{ $book->id }},
+                },
+                success: function(response) {
+                    // Update the status of the buttons
+                    if (response.success) {
+                        // The book was successfully liked
+                        $(".btn-app.bg-secondary").html('<span class="badge bg-danger">'
+                            '</span> <i class="fas fa-thumbs-up"></i> Likes');
+                    } else {
+                        // The book was not successfully liked
+                        alert('Something went wrong');
+                    }
+                },
+                error: function(error) {
+                    // Handle the error
+                    alert(error);
+                },
+            });
+        }
+    </script>
 @endsection

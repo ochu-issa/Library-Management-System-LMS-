@@ -147,6 +147,7 @@
     @yield('script-scheme')
     @livewireScripts --}}
     @yield('script-book')
+    @yield('script-user')
     @livewireScripts
 </body>
 

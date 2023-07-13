@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use App\Models\Comment;
 use Illuminate\Http\Request;
 
 class showController extends Controller
@@ -11,6 +12,12 @@ class showController extends Controller
     public function viewDashboard()
     {
         return view('dashboard');
+    }
+
+    //view user
+    public function viewUser()
+    {
+        return view('user');
     }
 
     //view books
@@ -22,7 +29,16 @@ class showController extends Controller
     //view book details
     public function bookDetails($id)
     {
-        $books = Book::findOrFail($id);
-        return view('bookDetails', ['book' => $books]);
+        $books = Book::find($id);
+
+        if ($books) {
+            $comments = Comment::where('book_id', $books->id)->with('user')->get();
+        } else {
+            // Book not found
+        }
+
+        //dd($comments);
+
+        return view('bookDetails', ['book' => $books, 'comments' => $comments]);
     }
 }
