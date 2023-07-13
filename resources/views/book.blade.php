@@ -8,6 +8,7 @@
             window.addEventListener('close-modal', event => {
                 $('#addbook').modal('hide');
                 $('#editbook').modal('hide');
+                $('#deletebook').modal('hide');
             })
         </script>
     @endsection

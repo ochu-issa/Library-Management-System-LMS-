@@ -138,3 +138,33 @@
     </div>
 </div>
 {{-- end of modal --}}
+
+
+<!-- Delete - Modal -->
+<div wire:ignore.self class="modal fade" id="deletebook" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalLongTitle">Delete Book</h5>
+                <button type="button" class="close" wire:click="closeModal" data-dismiss="modal"
+                    aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form wire:submit.prevent="destroyBook">
+                    <div class="row">
+                        <p>Are you sure you want to delete the book?</p>
+                    </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" wire:click="closeModal" class="btn btn-secondary"
+                    data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-danger btn-primary">Yes! Delete it</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+{{-- end of modal --}}

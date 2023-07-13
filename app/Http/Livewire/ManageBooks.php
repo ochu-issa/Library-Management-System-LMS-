@@ -58,7 +58,7 @@ class ManageBooks extends Component
         $this->dispatchBrowserEvent('close-modal');
     }
 
-    //edit functions
+    //call data to the modal functions
     public function editBook(int $bookid)
     {
         $this->book_id = $bookid;
@@ -71,6 +71,22 @@ class ManageBooks extends Component
         } else {
             return redirect('/book');
         }
+    }
+
+    //call delete modal with data
+    public function deleteBook(int $bookid)
+    {
+        $this->book_id = $bookid;
+    }
+
+    //destroy  Book
+    public function destroyBook()
+    {
+        $delete = Book::find($this->book_id);
+        $delete->delete();
+        session()->flash('success', 'Deleted Successfully');
+        $this->resetInput();
+        $this->dispatchBrowserEvent('close-modal');
     }
 
     public function closeModal()
