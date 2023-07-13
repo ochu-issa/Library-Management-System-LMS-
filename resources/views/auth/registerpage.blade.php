@@ -47,54 +47,62 @@
 
 
 
-    <div class="login-box">
-        <!-- /.login-logo -->
-        <div class="card card-outline card-primary">
-            <div class="card-header text-center">
-                <a href="" class="h4"><b>Library Management System</b></a>
-            </div>
-            <div class="card-body">
+    <div class="register-box">
+        <div class="register-logo">
+            <a href="">LMS</a>
+        </div>
 
-                <p class="login-box-msg">| User Login Panel |</p>
+        <div class="card">
+            <div class="card-body register-card-body">
+                <p class="login-box-msg">Register a new membership</p>
 
-                <form action="{{ route('authentication') }}" method="post">
+                <form action="{{route('registeruser')}}" method="post">
                     @csrf
                     <div class="input-group mb-3">
-                        <input type="email" name="email" class="form-control" autocomplete="off"
-                            placeholder="Enter your email...." required>
+                        <input type="text" class="form-control" name="full_name" placeholder="Full name" required>
                         <div class="input-group-append">
                             <div class="input-group-text">
-                                <span class="fas fa-id-card"></span>
+                                <span class="fas fa-user"></span>
                             </div>
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="password" name="password" class="form-control" autocomplete="off"
-                            placeholder="************" required>
+                        <input type="email" class="form-control" name="email" placeholder="Email" required>
                         <div class="input-group-append">
                             <div class="input-group-text">
-                                <span class="fas fa-key"></span>
+                                <span class="fas fa-envelope"></span>
                             </div>
                         </div>
                     </div>
-
-                    <div class="social-auth-links text-center mt-2 mb-3">
-                        <div class="row">
-                            <div class="col col-md-12">
-                                <button type="submit" class="btn btn-block btn-primary"><span
-                                        class="fa fa-sign-in"></span> Login</button>
+                    <div class="input-group mb-3">
+                        <input type="password" class="form-control" name="password" placeholder="Password" required>
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
                             </div>
                         </div>
                     </div>
-                    <p>Don't have accoun? <a href="{{route('registerpage')}}">Register here</a></p>
+                    <div class="input-group mb-3">
+                        <input type="password" class="form-control" name="confirm_password" placeholder="Retype password" required>
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary btn-block">Register</button>
+                        </div>
+                        <!-- /.col -->
+                    </div>
                 </form>
-            </div>
-            <!-- /.card-body -->
 
-        </div>
-        <!-- /.card -->
+                <a href="{{route('login')}}" class="text-center">I already have a membership</a>
+            </div>
+            <!-- /.form-box -->
+        </div><!-- /.card -->
     </div>
-    <!-- /.login-box -->
     <!-- Toastr -->
     <script src="{{ asset('plugins/toastr/toastr.min.js') }}"></script>
 

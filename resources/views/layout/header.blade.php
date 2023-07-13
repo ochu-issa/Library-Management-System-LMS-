@@ -29,7 +29,7 @@
                     </div>
                 </a>
                 <div class="dropdown-divider"></div>
-                <a href="" class="dropdown-item" role="button">
+                <a href="{{route('logout')}}" class="dropdown-item" role="button">
                     <div class="media">
                         <div class="media-body">
                             <h3 class="dropdown-item-title">

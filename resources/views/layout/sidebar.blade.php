@@ -9,7 +9,7 @@
                    <img src={{ asset('profile.png') }} class="img-circle elevation-2" alt="User Image">
                </div>
                <div class="info">
-                   <a href="#" class="d-block">username here</a>
+                   <a href="#" class="d-block">{{Auth::user()->full_name}}</a>
                </div>
            </div>
            <!-- Sidebar Menu -->
