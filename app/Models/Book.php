@@ -27,4 +27,10 @@ class Book extends Model
     {
         return $this->hasMany(Favorite::class);
     }
+
+    //factory
+    public static function factory()
+{
+    return \Database\Factories\BookFactory::new();
+}
 }
