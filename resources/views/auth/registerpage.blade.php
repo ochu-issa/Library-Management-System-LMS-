@@ -20,7 +20,7 @@
     <script src={{ asset('plugins/jquery/jquery.min.js') }}></script>
 </head>
 
-<body class="hold-transition login-page">
+<body class="hold-transition login-page" style="background-image: url('{{ asset('library.jpg') }}');">
     @if (session('success'))
         <script>
             $(document).ready(function() {

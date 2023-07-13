@@ -20,7 +20,7 @@
     <script src={{ asset('plugins/jquery/jquery.min.js') }}></script>
 </head>
 
-<body class="hold-transition login-page">
+<body class="login-page" style="background-image: url('{{ asset('library.jpg') }}');">
     @if (session('success'))
         <script>
             $(document).ready(function() {
@@ -47,7 +47,10 @@
 
 
 
-    <div class="login-box">
+    <div class="login-box" >
+        <!-- Content of the login box -->
+      </div>
+
         <!-- /.login-logo -->
         <div class="card card-outline card-primary">
             <div class="card-header text-center">
