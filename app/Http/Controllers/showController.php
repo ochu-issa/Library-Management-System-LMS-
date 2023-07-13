@@ -11,4 +11,10 @@ class showController extends Controller
     {
         return view('dashboard');
     }
+
+    //view books
+    public function viewBooks()
+    {
+        return view('book');
+    }
 }

@@ -146,7 +146,7 @@
     @yield('script-topic')
     @yield('script-scheme')
     @livewireScripts --}}
-    
+    @yield('script-book')
     @livewireScripts
 </body>
 
