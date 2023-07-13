@@ -1,6 +1,6 @@
 @extends('layout/app')
 @section('content')
-    <livewire:popula-book>
+    <livewire:fovirite-book>
 @endsection
 
     @section('script-book')

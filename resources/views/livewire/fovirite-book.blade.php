@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0"><span class="fa fa-heart"></span>Favorite Books</h1>
+                    <h1 class="m-0"><span class="fa fa-heart"></span> Favorite Books</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -46,12 +46,16 @@
                                 <th>S/No</th>
                                 <th>Book Title</th>
                                 <th>Book Author</th>
-                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-
-                            
+                            @foreach ($books as $index => $book)
+                                <tr>
+                                    <td>{{ $index + 1 }}</td>
+                                    <td>{{$book->books->booktitle}}</td>
+                                    <td>{{ $book->books->bookauthor }}</td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

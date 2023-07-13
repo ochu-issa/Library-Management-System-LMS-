@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Book;
+use App\Models\Favorite;
 use App\Models\Like;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
@@ -16,6 +17,7 @@ class LikesFavorites extends Component
     public $isFavorite;
 
 
+    //mount the data 
     public function mount($bookId)
     {
         $this->bookId = $bookId;
@@ -31,6 +33,7 @@ class LikesFavorites extends Component
         return view('livewire.likes-favorites');
     }
 
+    //function to like the book
     public function like()
     {
         $book = Book::find($this->bookId);
@@ -46,7 +49,19 @@ class LikesFavorites extends Component
         $this->mount($this->bookId);
     }
 
+    //function to mark book as favorite
     public function favorite()
     {
+        $book = Book::find($this->bookId);
+        $isFavorite = $book->favorites->where('user_id', Auth::id())->count() > 0;
+        if ($isFavorite) {
+            Favorite::where('user_id', Auth::id())->delete();
+        } else {
+            Favorite::create([
+                'user_id' => Auth::id(),
+                'book_id' => $this->bookId,
+            ]);
+        }
+        $this->mount($this->bookId);
     }
 }

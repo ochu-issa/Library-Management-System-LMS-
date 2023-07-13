@@ -46,4 +46,10 @@ class showController extends Controller
     {
         return view('populaBook');
     }
+
+    //view favorite book
+    public function viewFavoriteBook()
+    {
+        return view('favoriteBooks');
+    }
 }

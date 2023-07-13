@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col col-md-4">
-        <button class="btn btn-app bg-info" >
+        <button class="btn btn-app  @if($isFavorite) btn-danger @else bg-white @endif " wire:click='favorite' >
             <span class="badge bg-danger">{{$favorites}}</span>
             <i class="fas fa-heart"></i> Favorites
         </button>

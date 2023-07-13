@@ -20,6 +20,6 @@ class Favorite extends Model
     //Favorite belong to book
     public function books()
     {
-        return $this->belongsTo(Book::class);
+        return $this->belongsTo(Book::class, 'book_id', 'id');
     }
 }

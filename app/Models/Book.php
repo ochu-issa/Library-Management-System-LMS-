@@ -33,11 +33,4 @@ class Book extends Model
     {
         return $this->hasMany(Comment::class);
     }
-
-
-    // //factory
-    // public static function factory()
-    // {
-    //     return \Database\Factories\BookFactory::new();
-    // }
 }
