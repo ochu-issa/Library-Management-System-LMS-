@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\AuthenticationController;
+use App\Http\Controllers\Book\GetAllBooksController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -31,4 +32,5 @@ Route::post('/login', [AuthenticationController::class, 'loginUser']);
 //protected API's
 Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('/logout', [AuthenticationController::class, 'logoutUser']);
+    Route::get('/getallbook', [GetAllBooksController::class, 'getAllBook']);
 });
