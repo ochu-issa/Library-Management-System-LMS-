@@ -50,21 +50,21 @@
 
 
 <!-- Delete - Modal -->
-<div wire:ignore.self class="modal fade" id="deletebook" tabindex="-1" role="dialog"
+<div wire:ignore.self class="modal fade" id="deleteuser" tabindex="-1" role="dialog"
     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="deleteModalLongTitle">Delete Book</h5>
+                <h5 class="modal-title" id="deleteModalLongTitle">Delete User</h5>
                 <button type="button" class="close" wire:click="closeModal" data-dismiss="modal"
                     aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form wire:submit.prevent="destroyBook">
+                <form wire:submit.prevent="destroyUser">
                     <div class="row">
-                        <p>Are you sure you want to delete the book?</p>
+                        <p>Are you sure you want to delete the user?</p>
                     </div>
             </div>
             <div class="modal-footer">

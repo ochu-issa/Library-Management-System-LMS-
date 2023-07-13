@@ -60,8 +60,8 @@
                                             data-target="#edituser" class="btn btn-sm btn-primary"><span
                                                 class="fa fa-edit"></span>
                                             edit</button>
-                                        <button type="button" wire:click="" data-toggle="modal"
-                                            data-target="#deletebook" class="btn btn-sm btn-danger"><span
+                                        <button type="button" wire:click="deleteUser({{$user->id}})" data-toggle="modal"
+                                            data-target="#deleteuser" class="btn btn-sm btn-danger"><span
                                                 class="fa fa-trash"></span>
                                             trash</button>
                                     </td>

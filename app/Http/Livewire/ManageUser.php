@@ -61,6 +61,21 @@ class ManageUser extends Component
         }
     }
 
+    //destroy user info
+    public function destroyUser()
+    {
+        User::where('id', $this->user_id)->delete();
+        session()->flash('success', 'Deleted Successfully');
+        $this->resetInput();
+        $this->dispatchBrowserEvent('close-modal');
+    }
+
+    //get user infor in modal to delete
+    public function deleteUser(int $userid)
+    {
+        $this->user_id = $userid;
+    }
+
     public function closeModal()
     {
         $this->resetInput();
