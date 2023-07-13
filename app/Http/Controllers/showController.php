@@ -5,9 +5,16 @@ namespace App\Http\Controllers;
 use App\Models\Book;
 use App\Models\Comment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class showController extends Controller
 {
+    //check if authorized
+    public function unAuthorized()
+    {
+        if(!Auth::user()->hasRole('admin')){abort(403, 'Unauthorized');}
+    }
+
     //view dashboard
     public function viewDashboard()
     {
@@ -17,6 +24,7 @@ class showController extends Controller
     //view user
     public function viewUser()
     {
+        $this->unAuthorized();
         return view('user');
     }
 

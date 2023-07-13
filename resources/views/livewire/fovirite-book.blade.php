@@ -1,16 +1,16 @@
 <div>
-    {{-- @include('livewire.managePopulaBookModal') --}}
+    @include('livewire.managePopulaBookModal')
     <!-- Content Header (Page header) -->
     <div class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0"><span class="fa fa-book-open"></span>Popular Books</h1>
+                    <h1 class="m-0"><span class="fa fa-heart"></span>Favorite Books</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Popular Book</li>
+                        <li class="breadcrumb-item active">Favorite Books</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -36,7 +36,7 @@
             <!-- Small boxes (Stat box) -->
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">All Popular Book (s)</h3>
+                    <h3 class="card-title">Your Favorites Books (s)</h3>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
@@ -45,19 +45,13 @@
                             <tr>
                                 <th>S/No</th>
                                 <th>Book Title</th>
-                                <th>Likes</th>
+                                <th>Book Author</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
 
-                            @foreach ($books as $index => $book)
-                                {{-- <p>Book: '{{ $book->booktitle }}', Likes: {{ $book->likes_count }}</p> --}}
-                                <tr>
-                                    <td>{{$index+1}}</td>
-                                    <td>{{ $book->booktitle }}</td>
-                                    <td>{{ $book->likes_count }}</td>
-                                </tr>
-                            @endforeach
+                            
                         </tbody>
                     </table>
                 </div>

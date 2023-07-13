@@ -28,7 +28,6 @@ Route::post('/login', [AuthenticationController::class, 'loginUser']);
 
 //Route::get('/getallbook', [BookController::class, 'getALLBooks']);
 
-
 //protected API's
 Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('/logout', [AuthenticationController::class, 'logoutUser']);

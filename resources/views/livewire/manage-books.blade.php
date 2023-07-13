@@ -37,8 +37,10 @@
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title">All Book (s)</h3>
+                    @hasrole('admin')
                     <button class="btn btn-primary btn-sm float-right" data-toggle="modal" data-target="#addbook"><span
                             class="fa fa-plus"> Add book</span></button>
+                    @endhasrole
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
@@ -61,17 +63,24 @@
                                     <td>{{ $book->bookauthor }} </td>
                                     <td>{{ $book->booktype }}</td>
                                     <td>{{ $book->user->full_name }} -
-                                        <small>{{ $book->user->created_at->diffForHumans() }}</small></td>
+                                        <small>{{ $book->user->created_at->diffForHumans() }}</small>
+                                    </td>
                                     <td>
 
-                                        <a href="{{ route('bookdetail', ['id' => $book->id]) }}" class="btn btn-sm btn-info">
+                                        <a href="{{ route('bookdetail', ['id' => $book->id]) }}"
+                                            class="btn btn-sm btn-info">
                                             <span class="fa fa-folder"></span> view
                                         </a>
-                                        <button type="button" wire:click="editBook({{$book->id}})" data-toggle="modal" data-target="#editbook"
-                                            class="btn btn-sm btn-primary"><span class="fa fa-edit"></span> edit</button>
-                                        <button type="button" wire:click="deleteBook({{$book->id}})" data-toggle="modal" data-target="#deletebook"
-                                            class="btn btn-sm btn-danger"><span class="fa fa-trash"></span> trash</button>
-
+                                        @hasrole('admin')
+                                            <button type="button" wire:click="editBook({{ $book->id }})"
+                                                data-toggle="modal" data-target="#editbook"
+                                                class="btn btn-sm btn-primary"><span class="fa fa-edit"></span>
+                                                edit</button>
+                                            <button type="button" wire:click="deleteBook({{ $book->id }})"
+                                                data-toggle="modal" data-target="#deletebook"
+                                                class="btn btn-sm btn-danger"><span class="fa fa-trash"></span>
+                                                trash</button>
+                                        @endhasrole
                                     </td>
                                 </tr>
                             @endforeach
