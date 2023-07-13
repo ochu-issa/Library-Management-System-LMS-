@@ -5,7 +5,7 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Book>
+ //@extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Book>
  */
 class BookFactory extends Factory
 {
@@ -17,11 +17,11 @@ class BookFactory extends Factory
     public function definition(): array
     {
         return [
-            'booktitle' =>$this->faker->word(),
-            'bookauthor' => $this->faker->word(),
-            'description' => $this->faker->word(),
+            'booktitle' =>$this->faker->sentence,
+            'bookauthor' => $this->faker->name,
+            'description' => $this->faker->sentence,
             "booktype"=> $this->faker->randomElement(['Art/Architecture','Novel','Historical Fictions','Horror','Crime', 'Classic', 'Science', 'Plays', 'Mystery']),
-            "user_id"=> $this->faker->numberBetween(1,10)
+            "user_id"=> 1
         ];
     }
 }
