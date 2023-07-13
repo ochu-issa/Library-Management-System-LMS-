@@ -57,21 +57,9 @@
                                     <b>Book Type</b> <a class="float-right">{{ $book->booktype }}</a>
                                 </li>
                             </ul>
-                            <div class="row">
-                                <div class="col col-md-4">
-                                    <button class="btn btn-app bg-info" onclick="likeBook('{{ $book->id }}')">
-                                        <span class="badge bg-danger">531</span>
-                                        <i class="fas fa-heart"></i> Favorites
-                                    </button>
-                                </div>
-                                <div class="col col-md-2"></div>
-                                <div class="col col-md-4">
-                                    <button class="btn btn-app bg-secondary" onclick="likeBook('{{ $book->id }}')">
-                                        <span class="badge bg-danger">531</span>
-                                        <i class="fas fa-thumbs-up"></i> Likes
-                                    </button>
-                                </div>
-                            </div>
+                            {{-- like and favorite button --}}
+                            <livewire:likes-favorites :bookId='$book->id'>
+                            {{-- -- --}}
 
                         </div>
                         <!-- /.card-body -->
@@ -133,21 +121,21 @@
     </section>
 
     <script>
-        function likeBook() {
+        function likeBook(id) {
+            console.log('book id '+ id);
             // Send an AJAX request to the server.
             $.ajax({
-                url: '/like',
+                url: '{{route('like')}}',
                 method: 'POST',
                 data: {
                     // The ID of the book to like
-                    bookId: {{ $book->id }},
+                    bookId: id,
                 },
                 success: function(response) {
                     // Update the status of the buttons
                     if (response.success) {
                         // The book was successfully liked
-                        $(".btn-app.bg-secondary").html('<span class="badge bg-danger">'
-                            '</span> <i class="fas fa-thumbs-up"></i> Likes');
+                        $(".btn-app.bg-secondary").html('<span class="badge bg-danger"> </span> <i class="fas fa-thumbs-up"></i> Likes');
                     } else {
                         // The book was not successfully liked
                         alert('Something went wrong');

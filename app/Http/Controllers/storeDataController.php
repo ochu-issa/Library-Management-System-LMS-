@@ -7,6 +7,7 @@ use App\Models\Comment;
 use App\Models\Like;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 
 class storeDataController extends Controller
@@ -33,6 +34,8 @@ class storeDataController extends Controller
     //add like to book
     public function likeBook(Request $request)
     {
+        Log::info("Logging like");
+        Log::info ($request->all());
         $book = Book::findOrFail($request->book_id);
         $userid = Auth::user()->id;
         if ($book) {

@@ -10,7 +10,7 @@
             </div>
         </div>
     </form><br>
-    @foreach ($comments as $comment)
+    @foreach ($book->comments as $comment)
         <div class="post">
             <div class="user-block">
                 <img class="img-circle img-bordered-sm" src="{{ asset('profile.png') }}" alt="user image">

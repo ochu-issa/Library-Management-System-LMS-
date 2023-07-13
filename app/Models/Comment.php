@@ -13,12 +13,12 @@ class Comment extends Model
     //comment belong to user
     public function user()
     {
-        $this->belongsTo(User::class);
+       return $this->belongsTo(User::class);
     }
 
     //comment belong to book
     public function book()
     {
-        $this->belongsTo(Book::class);
+        return $this->belongsTo(Book::class);
     }
 }

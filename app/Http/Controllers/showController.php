@@ -37,17 +37,8 @@ class showController extends Controller
     //view book details
     public function bookDetails($id)
     {
-        $books = Book::find($id);
-
-        if ($books) {
-            $comments = Comment::where('book_id', $books->id)->with('user')->get();
-        } else {
-            // Book not found
-        }
-
-        //dd($comments);
-
-        return view('bookDetails', ['book' => $books, 'comments' => $comments]);
+        $book = Book::find($id);
+        return view('bookDetails', compact('book'));
     }
 
     //get popular book

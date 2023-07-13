@@ -9,6 +9,7 @@ class Like extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
     //likes belong to user
     public function user()
     {
