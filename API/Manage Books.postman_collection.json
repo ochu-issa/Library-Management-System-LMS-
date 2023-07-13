@@ -1,0 +1,26 @@
+{
+	"info": {
+		"_postman_id": "2fe5a7bb-078b-42c1-8227-1d7bd110e210",
+		"name": "Manage Books",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27108061"
+	},
+	"item": [
+		{
+			"name": "Get All Books",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Get Popular Books",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
