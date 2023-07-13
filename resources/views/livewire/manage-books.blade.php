@@ -66,7 +66,7 @@
 
                                         <button type="button" data-toggle="modal" data-target="#updatesubject"
                                             class="btn btn-sm btn-info"><span class="fa fa-folder"></span> view</button>
-                                        <button type="button" data-toggle="modal" data-target="#editbook"
+                                        <button type="button" wire:click="editBook({{$book->id}})" data-toggle="modal" data-target="#editbook"
                                             class="btn btn-sm btn-primary"><span class="fa fa-edit"></span> edit</button>
                                         <button type="button" data-toggle="modal" data-target="#deletesubject"
                                             class="btn btn-sm btn-danger"><span class="fa fa-trash"></span> trash</button>
