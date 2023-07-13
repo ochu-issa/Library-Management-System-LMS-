@@ -44,4 +44,22 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    //user has many books
+    public function books()
+    {
+        return $this->hasMany(Book::class);
+    }
+
+    //user has many Likes
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
+    }
+
+    //user has many Favorite
+    public function favorites()
+    {
+        return $this->hasMany(Favorite::class);
+    }
 }
