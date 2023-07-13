@@ -25,7 +25,7 @@ class GetAllBooksController extends Controller
     //Get books with most likes
     public function booksWithMostLikes()
     {
-        $books = Book::withCount('likes')->orderBy('likes_count', 'asc')->get();
+        $books = Book::withCount('likes')->orderBy('likes_count', 'desc')->get();
 
         return response()->json([
             'book' => $books
