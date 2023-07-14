@@ -71,11 +71,11 @@
                 <!-- /.col -->
                 <div class="col-md-3 col-sm-6 col-12">
                     <div class="info-box bg-gradient-warning">
-                        <span class="info-box-icon"><i class="far fa fa-book-open"></i></span>
+                        <span class="info-box-icon"><i class="far fa fa-heart"></i></span>
 
                         <div class="info-box-content">
-                            <span class="info-box-text">Book with most like</span>
-                            <span class="info-box-number">{{ number_format($bookWithMostLike, 0, '.', ',') }}</span>
+                            <span class="info-box-text">Popular Book ({{ number_format($bookWithMostLike, 0, '.', ',') }} Likes) </span>
+                            <span class="info-box-number"><small>{{ $bookWithMostLikeTitle }}</small></span></span>
 
                             <div class="progress">
                                 <div class="progress-bar" style="width: 70%"></div>

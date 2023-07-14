@@ -13,7 +13,9 @@ class showController extends Controller
     //check if authorized
     public function unAuthorized()
     {
-        if(!Auth::user()->hasRole('admin')){abort(403, 'Unauthorized');}
+        if (!Auth::user()->hasRole('admin')) {
+            abort(403, 'Unauthorized');
+        }
     }
 
     //view dashboard
@@ -28,9 +30,9 @@ class showController extends Controller
             'books' => $books,
             'likes' => $likes,
             'bookWithMostLike' => $bookWithMostLikes ? $bookWithMostLikes->likes_count : 0,
+            'bookWithMostLikeTitle' => $bookWithMostLikes ? $bookWithMostLikes->booktitle : '',
             'comments' => $comments,
         ]);
-
     }
 
     //view user
